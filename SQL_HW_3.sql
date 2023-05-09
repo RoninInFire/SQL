@@ -131,16 +131,29 @@ from salary left join employee_salary on salary.id = employee_salary.salary_id
 			left join employees on employee_salary.employee_id = employees.id 
 			left join roles_employee on employees.id = roles_employee.employee_id 
 			left join roles on roles_employee.role_id = roles.id 
-where roles.role_name like '%Junior Python developer%';
+where roles.role_name like '%Middle JavaScript developer%';
 
 
 -- 19. Вывести имена и зарплаты Senior Java разработчиков
+select employees.employee_name, salary.monthly_salary, roles.role_name  
+from salary left join employee_salary on salary.id = employee_salary.salary_id 
+			left join employees on employee_salary.employee_id = employees.id 
+			left join roles_employee on employees.id = roles_employee.employee_id 
+			left join roles on roles_employee.role_id = roles.id 
+where roles.role_name like '%Senior Java developer%';
 
 
 -- 20. Вывести зарплаты Junior QA инженеров
+select salary.monthly_salary, roles.role_name  
+from salary left join employee_salary on salary.id = employee_salary.salary_id 
+			left join employees on employee_salary.employee_id = employees.id 
+			left join roles_employee on employees.id = roles_employee.employee_id 
+			left join roles on roles_employee.role_id = roles.id 
+where roles.role_name like '%Junior%QA%';
 
 
 -- 21. Вывести среднюю зарплату всех Junior специалистов
+
 
 
 -- 22. Вывести сумму зарплат JS разработчиков
