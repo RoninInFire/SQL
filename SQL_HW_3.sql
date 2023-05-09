@@ -153,16 +153,39 @@ where roles.role_name like '%Junior%QA%';
 
 
 -- 21. Вывести среднюю зарплату всех Junior специалистов
-
+select avg(salary.monthly_salary) as avg_salary
+from salary left join employee_salary on salary.id = employee_salary.salary_id 
+			left join employees on employee_salary.employee_id = employees.id 
+			left join roles_employee on employees.id = roles_employee.employee_id 
+			left join roles on roles_employee.role_id = roles.id 
+where roles.role_name like '%Junior%';
 
 
 -- 22. Вывести сумму зарплат JS разработчиков
+select sum(salary.monthly_salary) as sum_salary
+from salary left join employee_salary on salary.id = employee_salary.salary_id 
+			left join employees on employee_salary.employee_id = employees.id 
+			left join roles_employee on employees.id = roles_employee.employee_id 
+			left join roles on roles_employee.role_id = roles.id 
+where roles.role_name like '%JavaScript%';
 
 
 -- 23. Вывести минимальную ЗП QA инженеров
+select min(salary.monthly_salary) as min_salary
+from salary left join employee_salary on salary.id = employee_salary.salary_id 
+			left join employees on employee_salary.employee_id = employees.id 
+			left join roles_employee on employees.id = roles_employee.employee_id 
+			left join roles on roles_employee.role_id = roles.id 
+where roles.role_name like '%QA%';
 
 
 -- 24. Вывести максимальную ЗП QA инженеров
+select max(salary.monthly_salary) as max_salary
+from salary left join employee_salary on salary.id = employee_salary.salary_id 
+			left join employees on employee_salary.employee_id = employees.id 
+			left join roles_employee on employees.id = roles_employee.employee_id 
+			left join roles on roles_employee.role_id = roles.id 
+where roles.role_name like '%QA%';
 
 
 -- 25. Вывести количество QA инженеров
