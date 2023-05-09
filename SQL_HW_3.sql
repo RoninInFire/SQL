@@ -21,6 +21,7 @@ select salary.id, salary.monthly_salary
 from salary left join employee_salary on employee_salary.salary_id = salary.id 
 where employee_salary.id is null and salary.monthly_salary < 2000;
 
+
 -- 5. Найти всех работников кому не начислена ЗП.
 select employees.id, employees.employee_name, salary.monthly_salary 
 from employees left join employee_salary on employees.id = employee_salary.employee_id 
@@ -28,9 +29,13 @@ from employees left join employee_salary on employees.id = employee_salary.emplo
 where salary.monthly_salary is null
 order by employees.id;
 
+
 -- 6. Вывести всех работников с названиями их должности.
+select employees.employee_name, roles.role_name 
+from employees left join roles_employee on employees.id = roles_employee.employee_id 
+			   left join roles on roles_employee.role_id = roles.id;
 
-
+			  
 -- 7. Вывести имена и должность только Java разработчиков.
 
 
