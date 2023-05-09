@@ -45,7 +45,9 @@ where roles.role_name like '%Java developer';
 
 -- 8. Вывести имена и должность только Python разработчиков.
 select employees.employee_name, roles.role_name 
-from employees left join 
+from employees left join roles_employee on employees.id = roles_employee.employee_id 
+			   left join roles on roles_employee.role_id = roles.id 
+where roles.role_name like '%Python developer';
 
 
 -- 9. Вывести имена и должность всех QA инженеров.
