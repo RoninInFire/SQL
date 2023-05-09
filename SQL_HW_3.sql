@@ -51,33 +51,87 @@ where roles.role_name like '%Python developer';
 
 
 -- 9. Вывести имена и должность всех QA инженеров.
+select employees.employee_name, roles.role_name 
+from employees left join roles_employee on employees.id = roles_employee.employee_id 
+			   left join roles on roles_employee.role_id = roles.id 
+where role_name like '%QA%';
 
 
 -- 10. Вывести имена и должность ручных QA инженеров.
+select employees.employee_name, roles.role_name 
+from employees left join roles_employee on employees.id = roles_employee.employee_id 
+			   left join roles on roles_employee.role_id = roles.id 
+where role_name like '%Manual QA%';
 
 
 -- 11. Вывести имена и должность автоматизаторов QA
+select employees.employee_name, roles.role_name 
+from employees left join roles_employee on employees.id = roles_employee.employee_id 
+			   left join roles on roles_employee.role_id = roles.id 
+where role_name like '%Automation QA%';
 
 
 -- 12. Вывести имена и зарплаты Junior специалистов
+select employees.employee_name, salary.monthly_salary, roles.role_name  
+from salary left join employee_salary on salary.id = employee_salary.salary_id 
+			left join employees on employee_salary.employee_id = employees.id 
+			left join roles_employee on employees.id = roles_employee.employee_id 
+			left join roles on roles_employee.role_id = roles.id 
+where roles.role_name like '%Junior%';
 
 
 -- 13. Вывести имена и зарплаты Middle специалистов
+select employees.employee_name, salary.monthly_salary, roles.role_name  
+from salary left join employee_salary on salary.id = employee_salary.salary_id 
+			left join employees on employee_salary.employee_id = employees.id 
+			left join roles_employee on employees.id = roles_employee.employee_id 
+			left join roles on roles_employee.role_id = roles.id 
+where roles.role_name like '%Middle%';
 
 
 -- 14. Вывести имена и зарплаты Senior специалистов
+select employees.employee_name, salary.monthly_salary, roles.role_name  
+from salary left join employee_salary on salary.id = employee_salary.salary_id 
+			left join employees on employee_salary.employee_id = employees.id 
+			left join roles_employee on employees.id = roles_employee.employee_id 
+			left join roles on roles_employee.role_id = roles.id 
+where roles.role_name like '%Senior%';
 
 
 -- 15. Вывести зарплаты Java разработчиков
+select salary.monthly_salary, roles.role_name  
+from salary left join employee_salary on salary.id = employee_salary.salary_id 
+			left join employees on employee_salary.employee_id = employees.id 
+			left join roles_employee on employees.id = roles_employee.employee_id 
+			left join roles on roles_employee.role_id = roles.id 
+where roles.role_name like '%Java developer%';
 
 
 -- 16. Вывести зарплаты Python разработчиков
+select salary.monthly_salary, roles.role_name  
+from salary left join employee_salary on salary.id = employee_salary.salary_id 
+			left join employees on employee_salary.employee_id = employees.id 
+			left join roles_employee on employees.id = roles_employee.employee_id 
+			left join roles on roles_employee.role_id = roles.id 
+where roles.role_name like '%Python developer%';
 
 
 -- 17. Вывести имена и зарплаты Junior Python разработчиков
+select employees.employee_name, salary.monthly_salary, roles.role_name  
+from salary left join employee_salary on salary.id = employee_salary.salary_id 
+			left join employees on employee_salary.employee_id = employees.id 
+			left join roles_employee on employees.id = roles_employee.employee_id 
+			left join roles on roles_employee.role_id = roles.id 
+where roles.role_name like '%Junior Python developer%';
 
 
 -- 18. Вывести имена и зарплаты Middle JS разработчиков
+select employees.employee_name, salary.monthly_salary, roles.role_name  
+from salary left join employee_salary on salary.id = employee_salary.salary_id 
+			left join employees on employee_salary.employee_id = employees.id 
+			left join roles_employee on employees.id = roles_employee.employee_id 
+			left join roles on roles_employee.role_id = roles.id 
+where roles.role_name like '%Junior Python developer%';
 
 
 -- 19. Вывести имена и зарплаты Senior Java разработчиков
