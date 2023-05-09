@@ -189,15 +189,25 @@ where roles.role_name like '%QA%';
 
 
 -- 25. Вывести количество QA инженеров
+select count(roles_employee.employee_id)
+from roles_employee left join roles on roles_employee.role_id = roles.id 
+where roles.role_name like '%QA%';
 
 
 -- 26. Вывести количество Middle специалистов.
+select count(roles_employee.employee_id)
+from roles_employee left join roles on roles_employee.role_id = roles.id 
+where roles.role_name like '%Middle%';
 
 
 -- 27. Вывести количество разработчиков
+select count(roles_employee.employee_id)
+from roles_employee left join roles on roles_employee.role_id = roles.id 
+where roles.role_name like '%developer%';
 
 
 -- 28. Вывести фонд (сумму) зарплаты разработчиков.
+
 
 
 -- 29. Вывести имена, должности и ЗП всех специалистов по возрастанию
