@@ -207,10 +207,21 @@ where roles.role_name like '%developer%';
 
 
 -- 28. Вывести фонд (сумму) зарплаты разработчиков.
-
+select sum(salary.monthly_salary) as sum_salary
+from salary left join employee_salary on salary.id = employee_salary.salary_id 
+			left join employees on employee_salary.employee_id = employees.id 
+			left join roles_employee on employees.id = roles_employee.employee_id 
+			left join roles on roles_employee.role_id = roles.id 
+where roles.role_name like '%developer%';
 
 
 -- 29. Вывести имена, должности и ЗП всех специалистов по возрастанию
+select employees.employee_name, roles.role_name, salary.monthly_salary
+from salary left join employee_salary on salary.id = employee_salary.salary_id 
+			left join employees on employee_salary.employee_id = employees.id 
+			left join roles_employee on employees.id = roles_employee.employee_id 
+			left join roles on roles_employee.role_id = roles.id
+order by salary.monthly_salary asc;
 
 
 -- 30. Вывести имена, должности и ЗП всех специалистов по возрастанию у специалистов у которых ЗП от 1700 до 2300
